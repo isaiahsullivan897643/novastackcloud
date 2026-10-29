@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Novastack Cloud</title>
+
+  <!-- High-Tech Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230B0F17'/%3E%3Cpath d='M30 65 L50 25 L70 65 Z' fill='none' stroke='%230EA5E9' stroke-width='8' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='52' r='8' fill='%2338BDF8'/%3E%3Cpath d='M22 72 L78 72' stroke='%2338BDF8' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              dark: '#080C14',
+              surface: '#0F172A',
+              card: '#131E35',
+              border: '#1E293B',
+              accent: '#0EA5E9',
+              accentHover: '#0284C7',
+              cyan: '#38BDF8',
+              emerald: '#10B981',
+              muted: '#94A3B8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080C14;
+      color: #F8FAFC;
+      font-family: 'Inter', sans-serif;
+    }
+    .grid-pattern {
+      background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 antialiased selection:bg-brand-accent selection:text-white flex flex-col min-h-screen justify-between">
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed top-20 right-5 z-50 transform translate-x-full transition-transform duration-300 ease-in-out bg-brand-surface text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 border border-brand-accent/40">
+    <i class="fa-solid fa-server text-brand-cyan text-base"></i>
+    <span id="toast-message" class="text-xs sm:text-sm font-medium">Service added to cart</span>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="bg-brand-surface/90 text-brand-cyan text-[11px] sm:text-xs py-2 px-4 text-center tracking-wider font-mono border-b border-brand-border">
+    <span><i class="fa-solid fa-bolt mr-1.5 text-amber-400"></i> MASSIVE SAVINGS: .XYZ from $0.99/yr & NVMe Cloud from $0.99/mo (All in USD)</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="index.html#home" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <i class="fa-solid fa-cloud-bolt text-lg"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-xl tracking-tight text-white">NOVASTACK</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-mono font-medium">CLOUD</span>
+            </div>
+            <span class="text-[10px] tracking-wider uppercase text-slate-400 block font-mono">Ultra-Affordable Web & TLDs</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-300">
+          <a href="index.html#home" class="hover:text-brand-cyan transition-colors">Overview</a>
+          <a href="index.html#domains" class="hover:text-brand-cyan transition-colors">Domains ($0.99+)</a>
+          <a href="index.html#hosting" class="hover:text-brand-cyan transition-colors">Hosting Plans</a>
+          <a href="index.html#infrastructure" class="hover:text-brand-cyan transition-colors">Infrastructure</a>
+          <a href="index.html#reviews" class="hover:text-brand-cyan transition-colors">Feedback</a>
+          <a href="index.html#faq" class="hover:text-brand-cyan transition-colors">FAQ</a>
+          <a href="index.html#contact" class="hover:text-brand-cyan transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-1.5 text-xs font-mono font-semibold text-slate-300 bg-brand-surface px-3 py-1.5 rounded-full border border-brand-border">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>USD ($)</span>
+          </div>
+
+          <button id="cart-btn" class="relative p-2.5 rounded-xl bg-brand-surface hover:bg-brand-card border border-brand-border text-slate-200 transition-colors" aria-label="Shopping Cart">
+            <i class="fa-solid fa-cart-shopping text-base"></i>
+            <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-sky-500 text-white text-[11px] font-bold rounded-full flex items-center justify-center scale-0 transition-transform">0</span>
+          </button>
+
+          <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-brand-surface text-slate-200 border border-brand-border" aria-label="Menu">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-surface border-b border-brand-border px-6 py-5 space-y-3">
+      <a href="index.html#home" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Overview</a>
+      <a href="index.html#domains" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Domains ($0.99+)</a>
+      <a href="index.html#hosting" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Hosting Plans</a>
+      <a href="index.html#infrastructure" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Infrastructure</a>
+      <a href="index.html#reviews" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Client Reviews</a>
+      <a href="index.html#faq" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">FAQ & Migration</a>
+      <a href="index.html#contact" class="block text-sm font-semibold tracking-wider uppercase text-slate-200 hover:text-brand-cyan">Contact Support</a>
+    </div>
+  </header>
+
+  <!-- Slide-Over Provisioning Cart Drawer -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/75 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300">
+    <div id="cart-drawer" class="absolute top-0 right-0 h-full w-full max-w-md bg-brand-surface shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-brand-border">
+      <div class="p-6 border-b border-brand-border flex items-center justify-between bg-brand-dark/70">
+        <div>
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-cart-shopping text-sky-400"></i> Service Cart
+          </h3>
+          <p class="text-[11px] text-slate-400 font-mono">Billed securely in United States Dollars (USD)</p>
+        </div>
+        <button id="close-cart-btn" class="text-slate-400 hover:text-white p-2 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-3.5">
+        <p class="text-slate-400 text-center py-12 text-sm font-mono">Cart is empty. Select a domain or hosting tier.</p>
+      </div>
+      <div class="p-6 border-t border-brand-border bg-brand-dark/80">
+        <div class="flex justify-between items-center text-slate-400 text-xs mb-2">
+          <span>Provisioning Fee:</span>
+          <span class="text-emerald-400 font-mono font-semibold">$0.00 (Instant Free Setup)</span>
+        </div>
+        <div class="flex justify-between items-center mb-5 text-white">
+          <span class="text-sm font-bold uppercase tracking-wider text-slate-300">Total Due (USD):</span>
+          <span id="cart-total-price" class="font-mono text-2xl font-bold text-sky-400">$0.00</span>
+        </div>
+        <button onclick="showToast('Connecting to payment gateway. Ready to provision!')" class="w-full bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-sky-500/20">
+          Proceed to Checkout
+        </button>
+        <p class="text-[10px] text-center text-slate-400 mt-3 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-lock text-sky-400"></i> 256-Bit SSL Encrypted • 30-Day Money-Back Guarantee
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Legal Document -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid-pattern">
+    <div class="text-center mb-12">
+      <span class="px-3.5 py-1 text-xs font-mono uppercase tracking-wider text-sky-400 bg-sky-950/60 border border-sky-500/30 rounded-full">
+        Data Protection Protocol
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-4 tracking-tight">Privacy Policy</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-3 font-mono">Effective: October 2026 • Headquarters: Chicago, IL, USA</p>
+    </div>
+
+    <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 sm:p-10 space-y-8 shadow-2xl">
+      <section>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
+          <i class="fa-solid fa-shield-halved text-sky-400 text-base"></i> 1. Scope & Operations
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-300">
+          Novastack Cloud ("we," "our," or "us"), headquartered at <strong>401 N Michigan Ave, Suite 1200, Chicago, IL 60611, USA</strong>, provides budget-friendly domain name registrations, SSD/NVMe cloud hosting nodes, and managed DNS routing. This policy governs how customer account information and server diagnostics are safeguarded under US standards.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
+          <i class="fa-solid fa-database text-sky-400 text-base"></i> 2. Information We Collect
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-300 mb-3">
+          To activate low-cost domains and provision VPS/Shared hosting instances priced in <strong>United States Dollars ($ USD)</strong>, we collect:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-400 font-mono">
+          <li><strong>Registration Data:</strong> Legal name, physical address, and primary contact email address.</li>
+          <li><strong>ICANN WHOIS Records:</strong> Mandatory registrant contact information required by top-level domain registries (WHOIS privacy shielding is automatically activated where eligible).</li>
+          <li><strong>Billing Identifiers:</strong> Tokenized payment logs routed through Level-1 PCI-DSS complaint merchant gateways. We never retain full payment card numbers.</li>
+          <li><strong>Network Metrics:</strong> Origin IP addresses, SSH authentication timestamps, firewall logs, and connection request headers strictly used for DDoS mitigation and abusive traffic containment.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
+          <i class="fa-solid fa-server text-sky-400 text-base"></i> 3. Infrastructure Purpose & Data Usage
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-300">
+          Collected data is applied exclusively toward auto-provisioning web hosting nodes, routing BGP edge networks, deploying Free SSL certificates, and delivering critical maintenance notifications. <strong>Novastack Cloud does not sell, rent, or trade your personal or registration data to third-party advertisers.</strong>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
+          <i class="fa-solid fa-user-shield text-sky-400 text-base"></i> 4. CCPA & Consumer Privacy Rights
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-300">
+          In alignment with the California Consumer Privacy Act (CCPA) and federal privacy frameworks, clients possess the right to inspect their personal data records, request corrections to WHOIS registry records, or request complete removal of inactive customer accounts upon service decommissioning.
+        </p>
+      </section>
+
+      <section class="border-t border-brand-border pt-6">
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
+          <i class="fa-solid fa-envelope text-sky-400 text-base"></i> 5. Privacy Compliance Inquiries
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          For registry disclosures, privacy audits, or data deletion requests, contact our privacy response team directly:
+        </p>
+        <div class="mt-4 p-5 rounded-xl bg-brand-dark/80 border border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="text-white font-bold">Novastack Cloud Privacy & Security Desk</div>
+            <div class="text-xs text-slate-400 mt-0.5">401 N Michigan Ave, Suite 1200, Chicago, IL 60611, USA</div>
+            <div class="text-sm text-sky-400 font-mono mt-1">novastackcloud.help@gmail.com</div>
+          </div>
+          <a href="mailto:novastackcloud.help@gmail.com?subject=Privacy%20Desk%20Inquiry" class="px-5 py-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs font-mono font-bold uppercase tracking-wider text-center transition">
+            Contact Privacy Officer
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Connected Footer -->
+  <footer class="bg-brand-surface border-t border-brand-border pt-16 pb-12 text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-brand-border">
+        
+        <!-- Brand Summary -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold">
+              <i class="fa-solid fa-cloud-bolt text-sm"></i>
+            </div>
+            <span class="text-xl font-bold text-white">NOVASTACK</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            Ultra-affordable cloud infrastructure, high-speed NVMe storage, and dirt-cheap domain registration priced fairly in USD.
+          </p>
+          <div class="text-xs space-y-2 font-mono">
+            <p><i class="fa-solid fa-location-dot text-sky-400 mr-2"></i> 401 N Michigan Ave, Suite 1200, Chicago, IL 60611, USA</p>
+            <p><i class="fa-solid fa-envelope text-sky-400 mr-2"></i> novastackcloud.help@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- Infrastructure & Hosting -->
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-widest font-mono mb-4">Cloud Services</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html#domains" class="hover:text-brand-cyan transition-colors">Domain Registry ($0.99+)</a></li>
+            <li><a href="index.html#hosting" class="hover:text-brand-cyan transition-colors">Starter Shared ($0.99/mo)</a></li>
+            <li><a href="index.html#hosting" class="hover:text-brand-cyan transition-colors">Cloud Standard ($2.49/mo)</a></li>
+            <li><a href="index.html#hosting" class="hover:text-brand-cyan transition-colors">Turbo NVMe VPS ($6.99/mo)</a></li>
+            <li><a href="index.html#hosting" class="hover:text-brand-cyan transition-colors">Enterprise Cloud ($24.99/mo)</a></li>
+          </ul>
+        </div>
+
+        <!-- Technical Features -->
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-widest font-mono mb-4">Architecture</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html#infrastructure" class="hover:text-brand-cyan transition-colors">10+ Tbps DDoS Filtering</a></li>
+            <li><a href="index.html#infrastructure" class="hover:text-brand-cyan transition-colors">PCIe 4.0 NVMe Storage</a></li>
+            <li><a href="index.html#infrastructure" class="hover:text-brand-cyan transition-colors">Free Automated SSL</a></li>
+            <li><a href="index.html#reviews" class="hover:text-brand-cyan transition-colors">Client Benchmark Stories</a></li>
+            <li><a href="index.html#faq" class="hover:text-brand-cyan transition-colors">Migration & DNS FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Documents -->
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-widest font-mono mb-4">Legal & Policies</h4>
+          <ul class="space-y-2 text-xs">
+            <li>
+              <a href="privacy-policy.html" class="text-sky-400 font-bold transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-shield-halved text-[10px]"></i> Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="refund-policy.html" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-rotate-left text-[10px]"></i> Refund Policy (30 Days)
+              </a>
+            </li>
+            <li>
+              <a href="terms-and-conditions.html" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-file-contract text-[10px]"></i> Terms and Conditions
+              </a>
+            </li>
+            <li><a href="index.html#contact" class="hover:text-brand-cyan transition-colors">Contact Support Desk</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>&copy; <span id="current-year"></span> Novastack Cloud Services Inc. All rights reserved. Billed in USD ($).</p>
+        <div class="flex gap-4 font-mono">
+          <a href="privacy-policy.html" class="text-sky-400 underline">Privacy Policy</a>
+          <a href="refund-policy.html" class="hover:text-slate-300 underline">Refund Policy</a>
+          <a href="terms-and-conditions.html" class="hover:text-slate-300 underline">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Drawer and Mobile Navigation Handlers
+    const cartBtn = document.getElementById('cart-btn');
+    const closeCartBtn = document.getElementById('close-cart-btn');
+    const cartDrawerOverlay = document.getElementById('cart-drawer-overlay');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openCart() {
+      cartDrawerOverlay.classList.remove('hidden');
+      setTimeout(() => {
+        cartDrawerOverlay.classList.remove('opacity-0');
+        cartDrawer.classList.remove('translate-x-full');
+      }, 10);
+    }
+
+    function closeCart() {
+      cartDrawer.classList.add('translate-x-full');
+      cartDrawerOverlay.classList.add('opacity-0');
+      setTimeout(() => cartDrawerOverlay.classList.add('hidden'), 300);
+    }
+
+    cartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    cartDrawerOverlay.addEventListener('click', (e) => {
+      if (e.target === cartDrawerOverlay) closeCart();
+    });
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('translate-x-full');
+      setTimeout(() => toast.classList.add('translate-x-full'), 3000);
+    }
+  </script>
+</body>
+</html>
